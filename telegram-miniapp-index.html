@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tele Web</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    :root {
+      --bg: #0b1220;
+      --surface: rgba(17, 24, 39, 0.92);
+      --surface-2: rgba(15, 23, 42, 0.98);
+      --border: rgba(255,255,255,0.10);
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #22c55e;
+      --accent-2: #38bdf8;
+      --danger: #fb7185;
+      --shadow: 0 18px 40px rgba(0,0,0,.28);
+      --radius: 18px;
+      --radius-sm: 14px;
+      --gap: 12px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(circle at top, #172554 0%, var(--bg) 45%, #020617 100%);
+      color: var(--text);
+    }
+
+    .app {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 16px;
+      padding-bottom: 96px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 12px;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand h1 {
+      font-size: 18px;
+      margin: 0;
+      line-height: 1.1;
+    }
+
+    .brand small {
+      color: var(--muted);
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      display: grid;
+      gap: 10px;
+    }
+
+    .hero h2 {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1.1;
+    }
+
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .nav {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .nav button,
+    .action,
+    .mini-btn {
+      border: 0;
+      border-radius: var(--radius-sm);
+      padding: 14px 14px;
+      font: inherit;
+      font-weight: 700;
+      color: #08111f;
+      background: linear-gradient(180deg, #e5e7eb, #cbd5e1);
+      cursor: pointer;
+      transition: transform .15s ease, filter .15s ease, opacity .15s ease;
+      min-height: 48px;
+    }
+
+    .nav button:hover,
+    .action:hover,
+    .mini-btn:hover { filter: brightness(1.03); }
+    .nav button:active,
+    .action:active,
+    .mini-btn:active { transform: translateY(1px); }
+
+    .nav button.active {
+      background: linear-gradient(180deg, #86efac, #22c55e);
+      color: #052e16;
+    }
+
+    .views {
+      margin-top: 16px;
+    }
+
+    .view {
+      display: none;
+      animation: fade .18s ease;
+    }
+
+    .view.active { display: block; }
+
+    @keyframes fade { from { opacity: .5; transform: translateY(3px); } to { opacity: 1; transform: none; } }
+
+    .section-title {
+      margin: 0 0 12px;
+      font-size: 18px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 12px;
+    }
+
+    .card {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+    }
+
+    .card h3 {
+      margin: 0 0 6px;
+      font-size: 15px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .searchbar {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .searchbar input,
+    .searchbar select,
+    .form input,
+    .form textarea {
+      width: 100%;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      padding: 12px 14px;
+      font: inherit;
+      outline: none;
+    }
+
+    .searchbar input::placeholder,
+    .form input::placeholder,
+    .form textarea::placeholder { color: #94a3b8; }
+
+    .searchbar .grow { flex: 1 1 240px; }
+    .searchbar .fixed { flex: 0 0 180px; }
+
+    .list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .list-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      padding: 12px 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+    }
+
+    .list-item strong { display: block; margin-bottom: 2px; }
+    .list-item span { color: var(--muted); font-size: 13px; }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .action.primary { background: linear-gradient(180deg, #38bdf8, #0ea5e9); color: white; }
+    .action.success { background: linear-gradient(180deg, #86efac, #22c55e); color: #052e16; }
+    .action.warn { background: linear-gradient(180deg, #fde68a, #f59e0b); color: #422006; }
+    .action.danger { background: linear-gradient(180deg, #fda4af, #fb7185); color: #4c0519; }
+
+    .form {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .form textarea { min-height: 110px; resize: vertical; }
+
+    .muted { color: var(--muted); }
+
+    .footerbar {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 12px 16px 16px;
+      background: linear-gradient(180deg, transparent, rgba(2,6,23,.86) 20%, rgba(2,6,23,.98));
+      backdrop-filter: blur(10px);
+    }
+
+    .footerbar .inner {
+      max-width: 980px;
+      margin: 0 auto;
+      display: flex;
+      gap: 10px;
+    }
+
+    .footerbar .inner button {
+      flex: 1;
+      min-height: 48px;
+    }
+
+    .hidden { display: none !important; }
+
+    @media (min-width: 760px) {
+      .grid { grid-template-columns: 1.25fr .75fr; }
+      .nav { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <h1>Tele Web</h1>
+        <small id="userLabel">Abre esto dentro de Telegram</small>
+      </div>
+      <div class="chip" id="modeChip">Mini App</div>
+    </header>
+
+    <div class="grid">
+      <section class="panel hero">
+        <h2>Catálogo y administración dentro de la misma Mini App</h2>
+        <p>
+          Usa los botones internos para navegar entre catálogo, búsqueda, destacados y administración.
+          El bot solo abre esta página; todo el resto sucede aquí dentro.
+        </p>
+        <div class="actions">
+          <button class="mini-btn" id="btnRefresh">Actualizar</button>
+          <button class="mini-btn" id="btnAlert">Probar Telegram</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h3 class="section-title">Estado</h3>
+        <div class="list">
+          <div class="list-item">
+            <div>
+              <strong id="statusTitle">Cargando...</strong>
+              <span id="statusText">Esperando Telegram.WebApp</span>
+            </div>
+          </div>
+          <div class="list-item">
+            <div>
+              <strong>Vista activa</strong>
+              <span id="viewLabel">catálogo</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <nav class="nav panel" aria-label="Navegación interna">
+      <button class="active" data-view="catalog">Catálogo</button>
+      <button data-view="search">Buscar</button>
+      <button data-view="featured">Destacados</button>
+      <button data-view="admin">Admin</button>
+    </nav>
+
+    <main class="views">
+      <section class="panel view active" id="view-catalog">
+        <h3 class="section-title">Catálogo</h3>
+        <p class="muted">Aquí irán tus películas y series publicadas desde la base de datos.</p>
+        <div class="cards" id="catalogCards"></div>
+      </section>
+
+      <section class="panel view" id="view-search">
+        <h3 class="section-title">Buscar</h3>
+        <p class="muted">Busca por título, género o año.</p>
+        <div class="searchbar">
+          <input id="searchInput" class="grow" type="text" placeholder="Escribe algo como: terror, 2026, avatar..." />
+          <button class="action primary fixed" id="searchBtn">Buscar</button>
+        </div>
+        <div class="list" id="searchResults"></div>
+      </section>
+
+      <section class="panel view" id="view-featured">
+        <h3 class="section-title">Destacados</h3>
+        <p class="muted">Contenidos marcados como destacados o recomendados.</p>
+        <div class="cards" id="featuredCards"></div>
+      </section>
+
+      <section class="panel view" id="view-admin">
+        <h3 class="section-title">Admin</h3>
+        <p class="muted">Panel interno para añadir contenido y enlaces. Esto luego lo conectaremos al backend.</p>
+        <div class="form">
+          <input id="adminTitle" type="text" placeholder="Título" />
+          <input id="adminSlug" type="text" placeholder="Slug" />
+          <input id="adminYear" type="number" placeholder="Año" />
+          <input id="adminPoster" type="url" placeholder="URL del póster" />
+          <textarea id="adminDesc" placeholder="Descripción"></textarea>
+          <div class="actions">
+            <button class="action success" id="saveDraft">Guardar borrador</button>
+            <button class="action warn" id="publishItem">Publicar</button>
+            <button class="action danger" id="clearForm">Limpiar</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="footerbar">
+    <div class="inner">
+      <button class="action primary" id="mainAction">Abrir enlace</button>
+      <button class="action" id="backAction">Atrás</button>
+    </div>
+  </div>
+
+  <script>
+    const tg = window.Telegram && window.Telegram.WebApp ? window.Telegram.WebApp : null;
+    const statusTitle = document.getElementById('statusTitle');
+    const statusText = document.getElementById('statusText');
+    const modeChip = document.getElementById('modeChip');
+    const userLabel = document.getElementById('userLabel');
+    const viewLabel = document.getElementById('viewLabel');
+    const navButtons = [...document.querySelectorAll('.nav button')];
+    const views = [...document.querySelectorAll('.view')];
+    const mainAction = document.getElementById('mainAction');
+    const backAction = document.getElementById('backAction');
+
+    const demoItems = [
+      { title: 'Avatar: Aang', year: 2026, type: 'Animación', featured: true },
+      { title: 'M3GAN 2.0', year: 2025, type: 'Ciencia ficción', featured: false },
+      { title: 'Scream 7', year: 2026, type: 'Terror', featured: true },
+      { title: 'La Odisea', year: 2026, type: 'Aventura', featured: false }
+    ];
+
+    function renderCards(target, items) {
+      target.innerHTML = items.map(item => `
+        <article class="card">
+          <h3>${item.title}</h3>
+          <p>${item.type} · ${item.year}${item.featured ? ' · Destacado' : ''}</p>
+        </article>
+      `).join('');
+    }
+
+    renderCards(document.getElementById('catalogCards'), demoItems);
+    renderCards(document.getElementById('featuredCards'), demoItems.filter(i => i.featured));
+
+    function setView(name) {
+      navButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.view === name));
+      views.forEach(v => v.classList.toggle('active', v.id === `view-${name}`));
+      viewLabel.textContent = name;
+
+      if (tg) {
+        if (name === 'admin') {
+          tg.MainButton.setText('Guardar');
+          tg.MainButton.show();
+          tg.BackButton.show();
+        } else {
+          tg.MainButton.setText(name === 'search' ? 'Buscar' : 'Abrir enlace');
+          tg.MainButton.show();
+          tg.BackButton.hide();
+        }
+      }
+    }
+
+    navButtons.forEach(btn => btn.addEventListener('click', () => setView(btn.dataset.view)));
+
+    document.getElementById('searchBtn').addEventListener('click', () => {
+      const q = document.getElementById('searchInput').value.trim().toLowerCase();
+      const results = demoItems.filter(item =>
+        item.title.toLowerCase().includes(q) ||
+        item.type.toLowerCase().includes(q) ||
+        String(item.year).includes(q)
+      );
+      const target = document.getElementById('searchResults');
+      if (!q) {
+        target.innerHTML = '<div class="list-item"><div><strong>Escribe algo para buscar</strong><span>No hay términos todavía.</span></div></div>';
+        return;
+      }
+      if (!results.length) {
+        target.innerHTML = '<div class="list-item"><div><strong>Sin resultados</strong><span>Prueba con otro término.</span></div></div>';
+        return;
+      }
+      target.innerHTML = results.map(item => `
+        <div class="list-item">
+          <div>
+            <strong>${item.title}</strong>
+            <span>${item.type} · ${item.year}</span>
+          </div>
+          <button class="action primary" type="button">Ver</button>
+        </div>
+      `).join('');
+    });
+
+    document.getElementById('btnRefresh').addEventListener('click', () => location.reload());
+
+    document.getElementById('btnAlert').addEventListener('click', () => {
+      if (tg) tg.showAlert('Telegram WebApp está funcionando correctamente.');
+      else alert('Abre esta página desde Telegram para probar la integración.');
+    });
+
+    document.getElementById('clearForm').addEventListener('click', () => {
+      ['adminTitle','adminSlug','adminYear','adminPoster','adminDesc'].forEach(id => document.getElementById(id).value = '');
+    });
+
+    document.getElementById('saveDraft').addEventListener('click', () => {
+      if (tg) tg.sendData(JSON.stringify({ action: 'save_draft' }));
+      else alert('Guardar borrador (demo)');
+    });
+
+    document.getElementById('publishItem').addEventListener('click', () => {
+      if (tg) tg.sendData(JSON.stringify({ action: 'publish_item' }));
+      else alert('Publicar (demo)');
+    });
+
+    mainAction.addEventListener('click', () => {
+      if (tg) tg.showAlert('Acción principal pulsada');
+      else alert('Acción principal');
+    });
+
+    backAction.addEventListener('click', () => {
+      if (tg && tg.BackButton.isVisible) tg.BackButton.hide();
+      setView('catalog');
+    });
+
+    if (tg) {
+      tg.ready();
+      tg.expand();
+      tg.BackButton.onClick(() => setView('catalog'));
+      tg.MainButton.onClick(() => {
+        const active = views.find(v => v.classList.contains('active'))?.id.replace('view-', '') || 'catalog';
+        if (active === 'search') {
+          document.getElementById('searchBtn').click();
+        } else if (active === 'admin') {
+          document.getElementById('publishItem').click();
+        } else {
+          tg.showAlert('Botón principal listo para usar en esta vista.');
+        }
+      });
+      statusTitle.textContent = 'Mini App activa';
+      statusText.textContent = 'Telegram WebApp detectado y listo.';
+      modeChip.textContent = 'Dentro de Telegram';
+      const user = tg.initDataUnsafe?.user;
+      if (user) {
+        userLabel.textContent = `${user.first_name || ''} ${user.last_name || ''}`.trim() || user.username || `ID ${user.id}`;
+      } else {
+        userLabel.textContent = 'Usuario no detectado';
+      }
+    } else {
+      statusTitle.textContent = 'Modo navegador';
+      statusText.textContent = 'Esta página también funciona fuera de Telegram, pero sin integración WebApp.';
+      modeChip.textContent = 'Navegador';
+      userLabel.textContent = 'Abre esto dentro de Telegram';
+    }
+
+    setView('catalog');
+  </script>
+</body>
+</html>
