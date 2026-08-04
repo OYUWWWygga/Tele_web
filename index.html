@@ -15,13 +15,10 @@
       --muted: #94a3b8;
       --accent: #22c55e;
       --accent-2: #38bdf8;
-      --danger: #fb7185;
       --shadow: 0 18px 40px rgba(0,0,0,.28);
       --radius: 18px;
       --radius-sm: 14px;
-      --gap: 12px;
     }
-
     * { box-sizing: border-box; }
     html, body { height: 100%; }
     body {
@@ -30,250 +27,83 @@
       background: radial-gradient(circle at top, #172554 0%, var(--bg) 45%, #020617 100%);
       color: var(--text);
     }
-
-    .app {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 16px 16px 96px;
-    }
-
+    .app { max-width: 1120px; margin: 0 auto; padding: 16px 16px 96px; }
     .topbar {
       display: flex; align-items: center; justify-content: space-between; gap: 12px;
       padding: 14px 16px; background: var(--surface); border: 1px solid var(--border);
       border-radius: var(--radius); box-shadow: var(--shadow); position: sticky; top: 12px;
       z-index: 20; backdrop-filter: blur(10px);
     }
-
     .brand { display: flex; flex-direction: column; gap: 2px; }
     .brand h1 { font-size: 18px; margin: 0; line-height: 1.1; }
     .brand small { color: var(--muted); }
-
     .chip {
       display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px;
       border: 1px solid var(--border); background: rgba(255,255,255,0.04); color: var(--muted);
       font-size: 13px; white-space: nowrap;
     }
-
     .hero {
-      margin-top: 16px;
-      padding: 18px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
+      margin-top: 16px; padding: 18px; background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); box-shadow: var(--shadow);
     }
-
-    .hero h2 {
-      margin: 0 0 8px;
-      font-size: 24px;
-      line-height: 1.1;
-    }
-
-    .hero p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
+    .hero h2 { margin: 0 0 8px; font-size: 24px; line-height: 1.1; }
+    .hero p { margin: 0; color: var(--muted); line-height: 1.6; }
     .toolbar {
-      margin-top: 16px;
-      padding: 14px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      display: grid;
-      gap: 10px;
+      margin-top: 16px; padding: 14px; background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); box-shadow: var(--shadow); display: grid; gap: 10px;
     }
-
-    .searchbar {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
+    .searchbar { display: flex; gap: 10px; flex-wrap: wrap; }
+    .searchbar input, .searchbar select {
+      flex: 1 1 200px; border-radius: var(--radius-sm); border: 1px solid var(--border);
+      background: rgba(255,255,255,0.05); color: var(--text); padding: 12px 14px; font: inherit;
+      outline: none; min-height: 48px;
     }
-
-    .searchbar input,
-    .searchbar select {
-      flex: 1 1 200px;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.05);
-      color: var(--text);
-      padding: 12px 14px;
-      font: inherit;
-      outline: none;
-      min-height: 48px;
-    }
-
     .searchbar input::placeholder { color: #94a3b8; }
-
-    .filters {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
+    .filters { display: flex; gap: 8px; flex-wrap: wrap; }
+    .filters button, .mini-btn, .action {
+      border: 0; border-radius: var(--radius-sm); padding: 12px 14px; font: inherit; font-weight: 700;
+      color: #08111f; background: linear-gradient(180deg, #e5e7eb, #cbd5e1); cursor: pointer;
+      transition: transform .15s ease, filter .15s ease; min-height: 46px;
     }
-
-    .filters button,
-    .mini-btn,
-    .action {
-      border: 0;
-      border-radius: var(--radius-sm);
-      padding: 12px 14px;
-      font: inherit;
-      font-weight: 700;
-      color: #08111f;
-      background: linear-gradient(180deg, #e5e7eb, #cbd5e1);
-      cursor: pointer;
-      transition: transform .15s ease, filter .15s ease;
-      min-height: 46px;
-    }
-
-    .filters button.active {
-      background: linear-gradient(180deg, #86efac, #22c55e);
-      color: #052e16;
-    }
-
-    .filters button:active,
-    .mini-btn:active,
-    .action:active { transform: translateY(1px); }
-
+    .filters button.active { background: linear-gradient(180deg, #86efac, #22c55e); color: #052e16; }
+    .filters button:active, .mini-btn:active, .action:active { transform: translateY(1px); }
     .grid {
-      margin-top: 16px;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      gap: 12px;
+      margin-top: 16px; display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px;
     }
-
     .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      cursor: pointer;
-      transition: transform .15s ease, border-color .15s ease;
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm);
+      overflow: hidden; box-shadow: var(--shadow); cursor: pointer; transition: transform .15s ease, border-color .15s ease;
     }
-
     .card:hover { transform: translateY(-2px); border-color: rgba(255,255,255,0.18); }
-
-    .poster {
-      width: 100%;
-      aspect-ratio: 2 / 3;
-      background: linear-gradient(180deg, rgba(56,189,248,.22), rgba(34,197,94,.18));
-      display: block;
-      object-fit: cover;
-    }
-
+    .poster { width: 100%; aspect-ratio: 2 / 3; background: linear-gradient(180deg, rgba(56,189,248,.22), rgba(34,197,94,.18)); display: block; object-fit: cover; }
     .poster-fallback {
-      width: 100%;
-      aspect-ratio: 2 / 3;
-      display: grid;
-      place-items: center;
+      width: 100%; aspect-ratio: 2 / 3; display: grid; place-items: center;
       background: linear-gradient(180deg, rgba(56,189,248,.22), rgba(34,197,94,.18));
-      color: white;
-      font-weight: 800;
-      letter-spacing: .5px;
-      text-align: center;
-      padding: 12px;
-      line-height: 1.2;
+      color: white; font-weight: 800; letter-spacing: .5px; text-align: center; padding: 12px; line-height: 1.2;
     }
-
-    .card-body {
-      padding: 10px 10px 12px;
-    }
-
-    .title {
-      margin: 0 0 4px;
-      font-size: 14px;
-      line-height: 1.25;
-    }
-
-    .meta {
-      font-size: 12px;
-      color: var(--muted);
-      display: flex;
-      justify-content: space-between;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 4px 8px;
-      border-radius: 999px;
-      font-size: 11px;
-      font-weight: 700;
-      color: #052e16;
-      background: #86efac;
-      white-space: nowrap;
-    }
-
-    .status {
-      margin-top: 14px;
-      color: var(--muted);
-      font-size: 14px;
-      text-align: center;
-    }
-
+    .card-body { padding: 10px 10px 12px; }
+    .title { margin: 0 0 4px; font-size: 14px; line-height: 1.25; }
+    .meta { font-size: 12px; color: var(--muted); display: flex; justify-content: space-between; gap: 8px; align-items: center; }
+    .badge { display: inline-flex; align-items: center; justify-content: center; padding: 4px 8px; border-radius: 999px; font-size: 11px; font-weight: 700; color: #052e16; background: #86efac; white-space: nowrap; }
+    .status { margin-top: 14px; color: var(--muted); font-size: 14px; text-align: center; }
     .footerbar {
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      padding: 12px 16px 16px;
+      position: fixed; left: 0; right: 0; bottom: 0; padding: 12px 16px 16px;
       background: linear-gradient(180deg, transparent, rgba(2,6,23,.86) 20%, rgba(2,6,23,.98));
       backdrop-filter: blur(10px);
     }
-
-    .footerbar .inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      display: flex;
-      gap: 10px;
-    }
-
-    .footerbar .inner button {
-      flex: 1;
-      min-height: 48px;
-    }
-
+    .footerbar .inner { max-width: 1120px; margin: 0 auto; display: flex; gap: 10px; }
+    .footerbar .inner button { flex: 1; min-height: 48px; }
     .detail {
-      margin-top: 16px;
-      display: none;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow: hidden;
+      margin-top: 16px; display: none; background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden;
     }
-
     .detail.active { display: block; }
-
-    .detail-inner {
-      display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 16px;
-      padding: 16px;
-    }
-
-    .detail-poster {
-      width: 100%;
-      aspect-ratio: 2 / 3;
-      border-radius: var(--radius-sm);
-      object-fit: cover;
-      background: rgba(255,255,255,0.05);
-    }
-
+    .detail-inner { display: grid; grid-template-columns: 180px 1fr; gap: 16px; padding: 16px; }
+    .detail-poster { width: 100%; aspect-ratio: 2 / 3; border-radius: var(--radius-sm); object-fit: cover; background: rgba(255,255,255,0.05); }
     .detail-info h3 { margin: 0 0 6px; font-size: 20px; }
     .detail-info p { margin: 0 0 10px; color: var(--muted); line-height: 1.6; }
     .detail-actions { display: flex; gap: 10px; flex-wrap: wrap; }
-
-    @media (max-width: 640px) {
-      .detail-inner { grid-template-columns: 1fr; }
-      .grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
-    }
+    @media (max-width: 640px) { .detail-inner { grid-template-columns: 1fr; } .grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); } }
   </style>
 </head>
 <body>
@@ -288,7 +118,7 @@
 
     <section class="hero">
       <h2>Catálogo en pósters</h2>
-      <p>Explora tus películas y series en formato grid, ideal para catálogos grandes. Toca una tarjeta para ver su detalle.</p>
+      <p>Toca una tarjeta para abrir el detalle con sinopsis, año y acciones.</p>
     </section>
 
     <section class="toolbar">
@@ -342,7 +172,7 @@
     let activeFilter = 'all';
 
     function escapeHtml(str) {
-      return String(str ?? '').replace(/[&<>"]/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[s]));
+      return String(str ?? '').replace(/[&<>"]/g, s => ({'&':'&amp;','&lt;':'&gt;','"':'&quot;'}[s]));
     }
 
     function posterMarkup(item) {
@@ -354,8 +184,8 @@
 
     function renderGrid() {
       const items = filteredItems.slice(0, visibleCount);
-      grid.innerHTML = items.map(item => `
-        <article class="card" data-slug="${escapeHtml(item.slug || item.title)}">
+      grid.innerHTML = items.map((item, i) => `
+        <article class="card" data-index="${i}">
           ${posterMarkup(item)}
           <div class="card-body">
             <h3 class="title">${escapeHtml(item.title)}</h3>
@@ -367,8 +197,11 @@
         </article>
       `).join('');
 
-      [...grid.querySelectorAll('.card')].forEach((card, idx) => {
-        card.addEventListener('click', () => openDetail(filteredItems[idx]));
+      [...grid.querySelectorAll('.card')].forEach(card => {
+        card.addEventListener('click', () => {
+          const idx = Number(card.dataset.index);
+          openDetail(filteredItems[idx]);
+        });
       });
 
       status.textContent = filteredItems.length
