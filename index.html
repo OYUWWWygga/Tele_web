@@ -2,15 +2,19 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Tele Web</title>
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <style>
     :root { --bg:#0b1220; --surface:rgba(17,24,39,.92); --border:rgba(255,255,255,.10); --text:#f8fafc; --muted:#94a3b8; --shadow:0 18px 40px rgba(0,0,0,.28); --radius:18px; --radius-sm:14px; }
     * { box-sizing:border-box; }
-    html, body { height:100%; }
-    body { margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; background:radial-gradient(circle at top,#172554 0%,var(--bg) 45%,#020617 100%); color:var(--text); }
-    .app { max-width:1120px; margin:0 auto; padding:16px 16px 96px; }
+    html, body { height:100%; margin:0; overflow:hidden; }
+    body { font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; background:radial-gradient(circle at top,#172554 0%,var(--bg) 45%,#020617 100%); color:var(--text); }
+    .app-shell { height:100vh; height:100dvh; overflow:hidden; }
+    .app-content {
+      height:100%; overflow-y:auto; -webkit-overflow-scrolling:touch; overscroll-behavior:contain;
+      padding:16px 16px calc(96px + env(safe-area-inset-bottom)); max-width:1120px; margin:0 auto;
+    }
     .topbar, .hero, .toolbar, .detail { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); backdrop-filter:blur(10px); }
     .topbar { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 16px; position:sticky; top:12px; z-index:20; }
     .brand { display:flex; flex-direction:column; gap:2px; }
@@ -36,7 +40,7 @@
     .meta { font-size:12px; color:var(--muted); display:flex; justify-content:space-between; gap:8px; align-items:center; }
     .badge { display:inline-flex; align-items:center; justify-content:center; padding:4px 8px; border-radius:999px; font-size:11px; font-weight:700; color:#052e16; background:#86efac; }
     .status { margin-top:14px; color:var(--muted); font-size:14px; text-align:center; }
-    .footerbar { position:fixed; left:0; right:0; bottom:0; padding:12px 16px 16px; background:linear-gradient(180deg,transparent,rgba(2,6,23,.86) 20%,rgba(2,6,23,.98)); }
+    .footerbar { position:fixed; left:0; right:0; bottom:0; padding:12px 16px calc(16px + env(safe-area-inset-bottom)); background:linear-gradient(180deg,transparent,rgba(2,6,23,.86) 20%,rgba(2,6,23,.98)); }
     .footerbar .inner { max-width:1120px; margin:0 auto; display:flex; gap:10px; }
     .footerbar .inner button { flex:1; min-height:48px; }
     .detail { margin-top:16px; display:none; overflow:hidden; }
@@ -50,41 +54,43 @@
   </style>
 </head>
 <body>
-  <div class="app">
-    <header class="topbar">
-      <div class="brand"><h1>Tele Web</h1><small id="userLabel">Catálogo visual</small></div>
-      <div class="chip" id="modeChip">Mini App</div>
-    </header>
+  <div class="app-shell">
+    <div class="app-content" id="appContent">
+      <header class="topbar">
+        <div class="brand"><h1>Tele Web</h1><small id="userLabel">Catálogo visual</small></div>
+        <div class="chip" id="modeChip">Mini App</div>
+      </header>
 
-    <section class="hero">
-      <h2>Catálogo en pósters</h2>
-      <p>Al tocar una tarjeta, la vista sube suavemente hacia esa película y luego abre el detalle.</p>
-    </section>
+      <section class="hero">
+        <h2>Catálogo en pósters</h2>
+        <p>En móvil, el scroll vive dentro de esta vista para evitar cierres raros y mejorar la estabilidad.</p>
+      </section>
 
-    <section class="toolbar">
-      <div class="searchbar">
-        <input id="searchInput" type="text" placeholder="Buscar por título, género o año..." />
-        <select id="typeSelect">
-          <option value="">Todo</option>
-          <option value="Terror">Terror</option>
-          <option value="Ciencia ficción">Ciencia ficción</option>
-          <option value="Aventura">Aventura</option>
-          <option value="Animación">Animación</option>
-        </select>
-      </div>
-      <div class="filters">
-        <button class="active" data-filter="all">Todo</button>
-        <button data-filter="featured">Destacados</button>
-        <button data-filter="latest">Recientes</button>
-      </div>
-    </section>
+      <section class="toolbar">
+        <div class="searchbar">
+          <input id="searchInput" type="text" placeholder="Buscar por título, género o año..." />
+          <select id="typeSelect">
+            <option value="">Todo</option>
+            <option value="Terror">Terror</option>
+            <option value="Ciencia ficción">Ciencia ficción</option>
+            <option value="Aventura">Aventura</option>
+            <option value="Animación">Animación</option>
+          </select>
+        </div>
+        <div class="filters">
+          <button class="active" data-filter="all">Todo</button>
+          <button data-filter="featured">Destacados</button>
+          <button data-filter="latest">Recientes</button>
+        </div>
+      </section>
 
-    <section id="detailView" class="detail"></section>
+      <section id="detailView" class="detail"></section>
 
-    <main>
-      <div id="grid" class="grid"></div>
-      <div id="status" class="status">Cargando catálogo...</div>
-    </main>
+      <main>
+        <div id="grid" class="grid"></div>
+        <div id="status" class="status">Cargando catálogo...</div>
+      </main>
+    </div>
   </div>
 
   <div class="footerbar">
@@ -113,23 +119,14 @@
 
     function esc(str) { return String(str ?? '').replace(/[&<>"]/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[s])); }
     function poster(item) { return item.poster_url ? `<img class="poster" src="${esc(item.poster_url)}" alt="${esc(item.title)}" loading="lazy">` : `<div class="poster-fallback">${esc(item.title)}</div>`; }
-
-    function scrollCardToCenter(cardEl) {
-      if (!cardEl) return;
-      const rect = cardEl.getBoundingClientRect();
-      const targetY = window.scrollY + rect.top - (window.innerHeight / 2) + (rect.height / 2);
-      window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
-    }
+    function scrollCardToCenter(cardEl) { if (!cardEl) return; const rect = cardEl.getBoundingClientRect(); const targetY = window.scrollY + rect.top - (window.innerHeight / 2) + (rect.height / 2); window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' }); }
 
     function renderGrid() {
       const items = filteredItems.slice(0, visibleCount);
       grid.innerHTML = items.map((item, i) => `
         <article class="card" data-index="${i}">${poster(item)}<div class="card-body"><h3 class="title">${esc(item.title)}</h3><div class="meta"><span>${esc(item.year ?? '')}</span>${item.is_featured ? '<span class="badge">Destacado</span>' : '<span>' + esc(item.type || '') + '</span>'}</div></div></article>
       `).join('');
-      grid.querySelectorAll('.card').forEach(card => card.addEventListener('click', () => {
-        const item = filteredItems[Number(card.dataset.index)];
-        openDetail(item, card);
-      }));
+      grid.querySelectorAll('.card').forEach(card => card.addEventListener('click', () => openDetail(filteredItems[Number(card.dataset.index)], card)));
       status.textContent = filteredItems.length ? `Mostrando ${items.length} de ${filteredItems.length} títulos` : 'No hay resultados';
       loadMoreBtn.style.display = visibleCount < filteredItems.length ? 'block' : 'none';
     }
@@ -204,6 +201,7 @@
     if (tg) {
       tg.ready();
       if (typeof tg.expand === 'function') tg.expand();
+      if (typeof tg.disableVerticalSwipes === 'function') tg.disableVerticalSwipes();
       document.getElementById('userLabel').textContent = 'Dentro de Telegram';
       document.getElementById('modeChip').textContent = 'Telegram WebApp';
     }
