@@ -32,79 +32,39 @@
     }
 
     .app {
-      max-width: 980px;
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 16px;
-      padding-bottom: 96px;
+      padding: 16px 16px 96px;
     }
 
     .topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 14px 16px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      position: sticky;
-      top: 12px;
-      z-index: 20;
-      backdrop-filter: blur(10px);
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 14px 16px; background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); box-shadow: var(--shadow); position: sticky; top: 12px;
+      z-index: 20; backdrop-filter: blur(10px);
     }
 
-    .brand {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .brand h1 {
-      font-size: 18px;
-      margin: 0;
-      line-height: 1.1;
-    }
-
-    .brand small {
-      color: var(--muted);
-    }
+    .brand { display: flex; flex-direction: column; gap: 2px; }
+    .brand h1 { font-size: 18px; margin: 0; line-height: 1.1; }
+    .brand small { color: var(--muted); }
 
     .chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.04);
-      color: var(--muted);
-      font-size: 13px;
-      white-space: nowrap;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-      margin-top: 16px;
-    }
-
-    .panel {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 16px;
-      box-shadow: var(--shadow);
+      display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px;
+      border: 1px solid var(--border); background: rgba(255,255,255,0.04); color: var(--muted);
+      font-size: 13px; white-space: nowrap;
     }
 
     .hero {
-      display: grid;
-      gap: 10px;
+      margin-top: 16px;
+      padding: 18px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
     }
 
     .hero h2 {
-      margin: 0;
+      margin: 0 0 8px;
       font-size: 24px;
       line-height: 1.1;
     }
@@ -115,95 +75,26 @@
       line-height: 1.6;
     }
 
-    .nav {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
+    .toolbar {
       margin-top: 16px;
-    }
-
-    .nav button,
-    .action,
-    .mini-btn {
-      border: 0;
-      border-radius: var(--radius-sm);
-      padding: 14px 14px;
-      font: inherit;
-      font-weight: 700;
-      color: #08111f;
-      background: linear-gradient(180deg, #e5e7eb, #cbd5e1);
-      cursor: pointer;
-      transition: transform .15s ease, filter .15s ease, opacity .15s ease;
-      min-height: 48px;
-    }
-
-    .nav button:hover,
-    .action:hover,
-    .mini-btn:hover { filter: brightness(1.03); }
-    .nav button:active,
-    .action:active,
-    .mini-btn:active { transform: translateY(1px); }
-
-    .nav button.active {
-      background: linear-gradient(180deg, #86efac, #22c55e);
-      color: #052e16;
-    }
-
-    .views {
-      margin-top: 16px;
-    }
-
-    .view {
-      display: none;
-      animation: fade .18s ease;
-    }
-
-    .view.active { display: block; }
-
-    @keyframes fade { from { opacity: .5; transform: translateY(3px); } to { opacity: 1; transform: none; } }
-
-    .section-title {
-      margin: 0 0 12px;
-      font-size: 18px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-      gap: 12px;
-    }
-
-    .card {
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
       padding: 14px;
-    }
-
-    .card h3 {
-      margin: 0 0 6px;
-      font-size: 15px;
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.5;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 10px;
     }
 
     .searchbar {
       display: flex;
       gap: 10px;
-      margin-bottom: 12px;
       flex-wrap: wrap;
     }
 
     .searchbar input,
-    .searchbar select,
-    .form input,
-    .form textarea {
-      width: 100%;
+    .searchbar select {
+      flex: 1 1 200px;
       border-radius: var(--radius-sm);
       border: 1px solid var(--border);
       background: rgba(255,255,255,0.05);
@@ -211,54 +102,120 @@
       padding: 12px 14px;
       font: inherit;
       outline: none;
+      min-height: 48px;
     }
 
-    .searchbar input::placeholder,
-    .form input::placeholder,
-    .form textarea::placeholder { color: #94a3b8; }
+    .searchbar input::placeholder { color: #94a3b8; }
 
-    .searchbar .grow { flex: 1 1 240px; }
-    .searchbar .fixed { flex: 0 0 180px; }
-
-    .list {
-      display: grid;
-      gap: 10px;
-    }
-
-    .list-item {
+    .filters {
       display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: center;
-      padding: 12px 14px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-    }
-
-    .list-item strong { display: block; margin-bottom: 2px; }
-    .list-item span { color: var(--muted); font-size: 13px; }
-
-    .actions {
-      display: flex;
-      gap: 10px;
+      gap: 8px;
       flex-wrap: wrap;
     }
 
-    .action.primary { background: linear-gradient(180deg, #38bdf8, #0ea5e9); color: white; }
-    .action.success { background: linear-gradient(180deg, #86efac, #22c55e); color: #052e16; }
-    .action.warn { background: linear-gradient(180deg, #fde68a, #f59e0b); color: #422006; }
-    .action.danger { background: linear-gradient(180deg, #fda4af, #fb7185); color: #4c0519; }
-
-    .form {
-      display: grid;
-      gap: 10px;
-      margin-top: 12px;
+    .filters button,
+    .mini-btn,
+    .action {
+      border: 0;
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      font: inherit;
+      font-weight: 700;
+      color: #08111f;
+      background: linear-gradient(180deg, #e5e7eb, #cbd5e1);
+      cursor: pointer;
+      transition: transform .15s ease, filter .15s ease;
+      min-height: 46px;
     }
 
-    .form textarea { min-height: 110px; resize: vertical; }
+    .filters button.active {
+      background: linear-gradient(180deg, #86efac, #22c55e);
+      color: #052e16;
+    }
 
-    .muted { color: var(--muted); }
+    .filters button:active,
+    .mini-btn:active,
+    .action:active { transform: translateY(1px); }
+
+    .grid {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 12px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: transform .15s ease, border-color .15s ease;
+    }
+
+    .card:hover { transform: translateY(-2px); border-color: rgba(255,255,255,0.18); }
+
+    .poster {
+      width: 100%;
+      aspect-ratio: 2 / 3;
+      background: linear-gradient(180deg, rgba(56,189,248,.22), rgba(34,197,94,.18));
+      display: block;
+      object-fit: cover;
+    }
+
+    .poster-fallback {
+      width: 100%;
+      aspect-ratio: 2 / 3;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(180deg, rgba(56,189,248,.22), rgba(34,197,94,.18));
+      color: white;
+      font-weight: 800;
+      letter-spacing: .5px;
+      text-align: center;
+      padding: 12px;
+      line-height: 1.2;
+    }
+
+    .card-body {
+      padding: 10px 10px 12px;
+    }
+
+    .title {
+      margin: 0 0 4px;
+      font-size: 14px;
+      line-height: 1.25;
+    }
+
+    .meta {
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #052e16;
+      background: #86efac;
+      white-space: nowrap;
+    }
+
+    .status {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+    }
 
     .footerbar {
       position: fixed;
@@ -271,7 +228,7 @@
     }
 
     .footerbar .inner {
-      max-width: 980px;
+      max-width: 1120px;
       margin: 0 auto;
       display: flex;
       gap: 10px;
@@ -282,11 +239,40 @@
       min-height: 48px;
     }
 
-    .hidden { display: none !important; }
+    .detail {
+      margin-top: 16px;
+      display: none;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
 
-    @media (min-width: 760px) {
-      .grid { grid-template-columns: 1.25fr .75fr; }
-      .nav { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .detail.active { display: block; }
+
+    .detail-inner {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 16px;
+      padding: 16px;
+    }
+
+    .detail-poster {
+      width: 100%;
+      aspect-ratio: 2 / 3;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .detail-info h3 { margin: 0 0 6px; font-size: 20px; }
+    .detail-info p { margin: 0 0 10px; color: var(--muted); line-height: 1.6; }
+    .detail-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+    @media (max-width: 640px) {
+      .detail-inner { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
     }
   </style>
 </head>
@@ -295,239 +281,199 @@
     <header class="topbar">
       <div class="brand">
         <h1>Tele Web</h1>
-        <small id="userLabel">Abre esto dentro de Telegram</small>
+        <small id="userLabel">Catálogo visual</small>
       </div>
       <div class="chip" id="modeChip">Mini App</div>
     </header>
 
-    <div class="grid">
-      <section class="panel hero">
-        <h2>Catálogo y administración dentro de la misma Mini App</h2>
-        <p>
-          Usa los botones internos para navegar entre catálogo, búsqueda, destacados y administración.
-          El bot solo abre esta página; todo el resto sucede aquí dentro.
-        </p>
-        <div class="actions">
-          <button class="mini-btn" id="btnRefresh">Actualizar</button>
-          <button class="mini-btn" id="btnAlert">Probar Telegram</button>
-        </div>
-      </section>
+    <section class="hero">
+      <h2>Catálogo en pósters</h2>
+      <p>Explora tus películas y series en formato grid, ideal para catálogos grandes. Toca una tarjeta para ver su detalle.</p>
+    </section>
 
-      <section class="panel">
-        <h3 class="section-title">Estado</h3>
-        <div class="list">
-          <div class="list-item">
-            <div>
-              <strong id="statusTitle">Cargando...</strong>
-              <span id="statusText">Esperando Telegram.WebApp</span>
-            </div>
-          </div>
-          <div class="list-item">
-            <div>
-              <strong>Vista activa</strong>
-              <span id="viewLabel">catálogo</span>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+    <section class="toolbar">
+      <div class="searchbar">
+        <input id="searchInput" type="text" placeholder="Buscar por título, género o año..." />
+        <select id="typeSelect">
+          <option value="">Todo</option>
+          <option value="Terror">Terror</option>
+          <option value="Ciencia ficción">Ciencia ficción</option>
+          <option value="Aventura">Aventura</option>
+          <option value="Animación">Animación</option>
+        </select>
+      </div>
+      <div class="filters">
+        <button class="active" data-filter="all">Todo</button>
+        <button data-filter="featured">Destacados</button>
+        <button data-filter="latest">Recientes</button>
+      </div>
+    </section>
 
-    <nav class="nav panel" aria-label="Navegación interna">
-      <button class="active" data-view="catalog">Catálogo</button>
-      <button data-view="search">Buscar</button>
-      <button data-view="featured">Destacados</button>
-      <button data-view="admin">Admin</button>
-    </nav>
+    <section id="detailView" class="detail"></section>
 
-    <main class="views">
-      <section class="panel view active" id="view-catalog">
-        <h3 class="section-title">Catálogo</h3>
-        <p class="muted">Aquí irán tus películas y series publicadas desde la base de datos.</p>
-        <div class="cards" id="catalogCards"></div>
-      </section>
-
-      <section class="panel view" id="view-search">
-        <h3 class="section-title">Buscar</h3>
-        <p class="muted">Busca por título, género o año.</p>
-        <div class="searchbar">
-          <input id="searchInput" class="grow" type="text" placeholder="Escribe algo como: terror, 2026, avatar..." />
-          <button class="action primary fixed" id="searchBtn">Buscar</button>
-        </div>
-        <div class="list" id="searchResults"></div>
-      </section>
-
-      <section class="panel view" id="view-featured">
-        <h3 class="section-title">Destacados</h3>
-        <p class="muted">Contenidos marcados como destacados o recomendados.</p>
-        <div class="cards" id="featuredCards"></div>
-      </section>
-
-      <section class="panel view" id="view-admin">
-        <h3 class="section-title">Admin</h3>
-        <p class="muted">Panel interno para añadir contenido y enlaces. Esto luego lo conectaremos al backend.</p>
-        <div class="form">
-          <input id="adminTitle" type="text" placeholder="Título" />
-          <input id="adminSlug" type="text" placeholder="Slug" />
-          <input id="adminYear" type="number" placeholder="Año" />
-          <input id="adminPoster" type="url" placeholder="URL del póster" />
-          <textarea id="adminDesc" placeholder="Descripción"></textarea>
-          <div class="actions">
-            <button class="action success" id="saveDraft">Guardar borrador</button>
-            <button class="action warn" id="publishItem">Publicar</button>
-            <button class="action danger" id="clearForm">Limpiar</button>
-          </div>
-        </div>
-      </section>
+    <main>
+      <div id="grid" class="grid"></div>
+      <div id="status" class="status">Cargando catálogo...</div>
     </main>
   </div>
 
   <div class="footerbar">
     <div class="inner">
-      <button class="action primary" id="mainAction">Abrir enlace</button>
-      <button class="action" id="backAction">Atrás</button>
+      <button class="action" id="loadMoreBtn">Cargar más</button>
+      <button class="action" id="closeDetailBtn">Cerrar detalle</button>
     </div>
   </div>
 
   <script>
+    const API_BASE = 'http://127.0.0.1:8000/api';
     const tg = window.Telegram && window.Telegram.WebApp ? window.Telegram.WebApp : null;
-    const statusTitle = document.getElementById('statusTitle');
-    const statusText = document.getElementById('statusText');
-    const modeChip = document.getElementById('modeChip');
-    const userLabel = document.getElementById('userLabel');
-    const viewLabel = document.getElementById('viewLabel');
-    const navButtons = [...document.querySelectorAll('.nav button')];
-    const views = [...document.querySelectorAll('.view')];
-    const mainAction = document.getElementById('mainAction');
-    const backAction = document.getElementById('backAction');
+    const grid = document.getElementById('grid');
+    const status = document.getElementById('status');
+    const searchInput = document.getElementById('searchInput');
+    const typeSelect = document.getElementById('typeSelect');
+    const detailView = document.getElementById('detailView');
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    const closeDetailBtn = document.getElementById('closeDetailBtn');
+    const filterButtons = [...document.querySelectorAll('.filters button')];
 
-    const demoItems = [
-      { title: 'Avatar: Aang', year: 2026, type: 'Animación', featured: true },
-      { title: 'M3GAN 2.0', year: 2025, type: 'Ciencia ficción', featured: false },
-      { title: 'Scream 7', year: 2026, type: 'Terror', featured: true },
-      { title: 'La Odisea', year: 2026, type: 'Aventura', featured: false }
-    ];
+    let allItems = [];
+    let filteredItems = [];
+    let visibleCount = 12;
+    let activeFilter = 'all';
 
-    function renderCards(target, items) {
-      target.innerHTML = items.map(item => `
-        <article class="card">
-          <h3>${item.title}</h3>
-          <p>${item.type} · ${item.year}${item.featured ? ' · Destacado' : ''}</p>
+    function escapeHtml(str) {
+      return String(str ?? '').replace(/[&<>"]/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[s]));
+    }
+
+    function posterMarkup(item) {
+      if (item.poster_url) {
+        return `<img class="poster" src="${escapeHtml(item.poster_url)}" alt="${escapeHtml(item.title)}" loading="lazy" onerror="this.outerHTML='<div class=poster-fallback>${escapeHtml(item.title)}</div>'">`;
+      }
+      return `<div class="poster-fallback">${escapeHtml(item.title)}</div>`;
+    }
+
+    function renderGrid() {
+      const items = filteredItems.slice(0, visibleCount);
+      grid.innerHTML = items.map(item => `
+        <article class="card" data-slug="${escapeHtml(item.slug || item.title)}">
+          ${posterMarkup(item)}
+          <div class="card-body">
+            <h3 class="title">${escapeHtml(item.title)}</h3>
+            <div class="meta">
+              <span>${escapeHtml(item.year ?? '')}</span>
+              ${item.is_featured ? '<span class="badge">Destacado</span>' : '<span>' + escapeHtml(item.type || '') + '</span>'}
+            </div>
+          </div>
         </article>
       `).join('');
+
+      [...grid.querySelectorAll('.card')].forEach((card, idx) => {
+        card.addEventListener('click', () => openDetail(filteredItems[idx]));
+      });
+
+      status.textContent = filteredItems.length
+        ? `Mostrando ${items.length} de ${filteredItems.length} títulos`
+        : 'No hay resultados';
+
+      loadMoreBtn.style.display = visibleCount < filteredItems.length ? 'block' : 'none';
     }
 
-    renderCards(document.getElementById('catalogCards'), demoItems);
-    renderCards(document.getElementById('featuredCards'), demoItems.filter(i => i.featured));
+    function applyFilters() {
+      const q = searchInput.value.trim().toLowerCase();
+      const type = typeSelect.value.trim().toLowerCase();
+      let items = [...allItems];
 
-    function setView(name) {
-      navButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.view === name));
-      views.forEach(v => v.classList.toggle('active', v.id === `view-${name}`));
-      viewLabel.textContent = name;
+      if (activeFilter === 'featured') items = items.filter(i => i.is_featured);
+      if (activeFilter === 'latest') items = [...items].sort((a, b) => (b.year || 0) - (a.year || 0));
 
-      if (tg) {
-        if (name === 'admin') {
-          tg.MainButton.setText('Guardar');
-          tg.MainButton.show();
-          tg.BackButton.show();
-        } else {
-          tg.MainButton.setText(name === 'search' ? 'Buscar' : 'Abrir enlace');
-          tg.MainButton.show();
-          tg.BackButton.hide();
-        }
+      if (q) {
+        items = items.filter(item =>
+          String(item.title ?? '').toLowerCase().includes(q) ||
+          String(item.type ?? '').toLowerCase().includes(q) ||
+          String(item.year ?? '').includes(q)
+        );
       }
+
+      if (type) {
+        items = items.filter(item => String(item.type ?? '').toLowerCase() === type);
+      }
+
+      filteredItems = items;
+      visibleCount = 12;
+      renderGrid();
     }
 
-    navButtons.forEach(btn => btn.addEventListener('click', () => setView(btn.dataset.view)));
-
-    document.getElementById('searchBtn').addEventListener('click', () => {
-      const q = document.getElementById('searchInput').value.trim().toLowerCase();
-      const results = demoItems.filter(item =>
-        item.title.toLowerCase().includes(q) ||
-        item.type.toLowerCase().includes(q) ||
-        String(item.year).includes(q)
-      );
-      const target = document.getElementById('searchResults');
-      if (!q) {
-        target.innerHTML = '<div class="list-item"><div><strong>Escribe algo para buscar</strong><span>No hay términos todavía.</span></div></div>';
-        return;
-      }
-      if (!results.length) {
-        target.innerHTML = '<div class="list-item"><div><strong>Sin resultados</strong><span>Prueba con otro término.</span></div></div>';
-        return;
-      }
-      target.innerHTML = results.map(item => `
-        <div class="list-item">
-          <div>
-            <strong>${item.title}</strong>
-            <span>${item.type} · ${item.year}</span>
+    function openDetail(item) {
+      if (!item) return;
+      detailView.classList.add('active');
+      detailView.innerHTML = `
+        <div class="detail-inner">
+          ${item.poster_url ? `<img class="detail-poster" src="${escapeHtml(item.poster_url)}" alt="${escapeHtml(item.title)}" loading="lazy">` : `<div class="detail-poster poster-fallback">${escapeHtml(item.title)}</div>`}
+          <div class="detail-info">
+            <h3>${escapeHtml(item.title)}</h3>
+            <p><strong>Año:</strong> ${escapeHtml(item.year ?? '')}</p>
+            <p><strong>Género:</strong> ${escapeHtml(item.type ?? '')}</p>
+            <p>${escapeHtml(item.description || 'Sin descripción')}</p>
+            <div class="detail-actions">
+              <button class="mini-btn" id="backToGrid">Volver</button>
+              <button class="mini-btn" id="openLink">Abrir enlace</button>
+            </div>
           </div>
-          <button class="action primary" type="button">Ver</button>
         </div>
-      `).join('');
-    });
+      `;
+      document.getElementById('backToGrid').onclick = closeDetail;
+      document.getElementById('openLink').onclick = () => {
+        if (tg) tg.showAlert('Aquí luego abrirías el reproductor o enlace permitido.');
+        else alert('Abrir enlace');
+      };
+      if (tg) tg.expand();
+    }
 
-    document.getElementById('btnRefresh').addEventListener('click', () => location.reload());
+    function closeDetail() {
+      detailView.classList.remove('active');
+      detailView.innerHTML = '';
+    }
 
-    document.getElementById('btnAlert').addEventListener('click', () => {
-      if (tg) tg.showAlert('Telegram WebApp está funcionando correctamente.');
-      else alert('Abre esta página desde Telegram para probar la integración.');
-    });
+    async function loadCatalog() {
+      try {
+        const res = await fetch(`${API_BASE}/public/content`);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        allItems = await res.json();
+      } catch (e) {
+        allItems = [
+          { title: 'Scream 7', type: 'Terror', year: 2026, description: 'Demo local', is_featured: true, slug: 'scream-7', poster_url: '' },
+          { title: 'M3GAN 2.0', type: 'Ciencia ficción', year: 2025, description: 'Demo local', is_featured: true, slug: 'm3gan-2-0', poster_url: '' },
+          { title: 'La Odisea', type: 'Aventura', year: 2026, description: 'Demo local', is_featured: false, slug: 'la-odisea', poster_url: '' },
+          { title: 'Toy Story 5', type: 'Animación', year: 2026, description: 'Demo local', is_featured: false, slug: 'toy-story-5', poster_url: '' }
+        ];
+      }
+      filteredItems = [...allItems];
+      renderGrid();
+    }
 
-    document.getElementById('clearForm').addEventListener('click', () => {
-      ['adminTitle','adminSlug','adminYear','adminPoster','adminDesc'].forEach(id => document.getElementById(id).value = '');
-    });
+    filterButtons.forEach(btn => btn.addEventListener('click', () => {
+      filterButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeFilter = btn.dataset.filter;
+      applyFilters();
+    }));
 
-    document.getElementById('saveDraft').addEventListener('click', () => {
-      if (tg) tg.sendData(JSON.stringify({ action: 'save_draft' }));
-      else alert('Guardar borrador (demo)');
+    searchInput.addEventListener('input', applyFilters);
+    typeSelect.addEventListener('change', applyFilters);
+    loadMoreBtn.addEventListener('click', () => {
+      visibleCount += 12;
+      renderGrid();
     });
-
-    document.getElementById('publishItem').addEventListener('click', () => {
-      if (tg) tg.sendData(JSON.stringify({ action: 'publish_item' }));
-      else alert('Publicar (demo)');
-    });
-
-    mainAction.addEventListener('click', () => {
-      if (tg) tg.showAlert('Acción principal pulsada');
-      else alert('Acción principal');
-    });
-
-    backAction.addEventListener('click', () => {
-      if (tg && tg.BackButton.isVisible) tg.BackButton.hide();
-      setView('catalog');
-    });
+    closeDetailBtn.addEventListener('click', closeDetail);
 
     if (tg) {
       tg.ready();
       tg.expand();
-      tg.BackButton.onClick(() => setView('catalog'));
-      tg.MainButton.onClick(() => {
-        const active = views.find(v => v.classList.contains('active'))?.id.replace('view-', '') || 'catalog';
-        if (active === 'search') {
-          document.getElementById('searchBtn').click();
-        } else if (active === 'admin') {
-          document.getElementById('publishItem').click();
-        } else {
-          tg.showAlert('Botón principal listo para usar en esta vista.');
-        }
-      });
-      statusTitle.textContent = 'Mini App activa';
-      statusText.textContent = 'Telegram WebApp detectado y listo.';
-      modeChip.textContent = 'Dentro de Telegram';
-      const user = tg.initDataUnsafe?.user;
-      if (user) {
-        userLabel.textContent = `${user.first_name || ''} ${user.last_name || ''}`.trim() || user.username || `ID ${user.id}`;
-      } else {
-        userLabel.textContent = 'Usuario no detectado';
-      }
-    } else {
-      statusTitle.textContent = 'Modo navegador';
-      statusText.textContent = 'Esta página también funciona fuera de Telegram, pero sin integración WebApp.';
-      modeChip.textContent = 'Navegador';
-      userLabel.textContent = 'Abre esto dentro de Telegram';
+      document.getElementById('userLabel').textContent = 'Dentro de Telegram';
+      document.getElementById('modeChip').textContent = 'Telegram WebApp';
     }
 
-    setView('catalog');
+    loadCatalog();
   </script>
 </body>
 </html>
