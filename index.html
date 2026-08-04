@@ -12,7 +12,7 @@
     body { font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; background:radial-gradient(circle at top,#172554 0%,var(--bg) 45%,#020617 100%); color:var(--text); }
     .app-shell { height:100vh; height:100dvh; overflow:hidden; }
     .app-content {
-      height:100%; overflow-y:auto; -webkit-overflow-scrolling:touch; overscroll-behavior:contain;
+      height:100%; overflow-y:auto; -webkit-overflow-scrolling:touch; overscroll-behavior:contain; touch-action:pan-y;
       padding:16px 16px calc(96px + env(safe-area-inset-bottom)); max-width:1120px; margin:0 auto;
     }
     .topbar, .hero, .toolbar, .detail { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); backdrop-filter:blur(10px); }
@@ -63,7 +63,7 @@
 
       <section class="hero">
         <h2>Catálogo en pósters</h2>
-        <p>En móvil, el scroll vive dentro de esta vista para evitar cierres raros y mejorar la estabilidad.</p>
+        <p>En móvil, al tocar una peli la vista se desplaza dentro del contenedor y luego abre el detalle.</p>
       </section>
 
       <section class="toolbar">
@@ -103,6 +103,7 @@
   <script>
     const API_BASE = 'http://127.0.0.1:8000/api';
     const tg = window.Telegram?.WebApp || null;
+    const appContent = document.getElementById('appContent');
     const grid = document.getElementById('grid');
     const status = document.getElementById('status');
     const searchInput = document.getElementById('searchInput');
@@ -119,14 +120,27 @@
 
     function esc(str) { return String(str ?? '').replace(/[&<>"]/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[s])); }
     function poster(item) { return item.poster_url ? `<img class="poster" src="${esc(item.poster_url)}" alt="${esc(item.title)}" loading="lazy">` : `<div class="poster-fallback">${esc(item.title)}</div>`; }
-    function scrollCardToCenter(cardEl) { if (!cardEl) return; const rect = cardEl.getBoundingClientRect(); const targetY = window.scrollY + rect.top - (window.innerHeight / 2) + (rect.height / 2); window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' }); }
+    function closeDetail() { detailView.classList.remove('active'); detailView.innerHTML = ''; }
+    function scrollCardIntoView(cardEl) {
+      if (!cardEl || !appContent) return;
+      const cardTop = cardEl.offsetTop;
+      const target = cardTop - (appContent.clientHeight * 0.28);
+      appContent.scrollTo({ top: Math.max(0, target), behavior: 'smooth' });
+    }
 
     function renderGrid() {
       const items = filteredItems.slice(0, visibleCount);
       grid.innerHTML = items.map((item, i) => `
         <article class="card" data-index="${i}">${poster(item)}<div class="card-body"><h3 class="title">${esc(item.title)}</h3><div class="meta"><span>${esc(item.year ?? '')}</span>${item.is_featured ? '<span class="badge">Destacado</span>' : '<span>' + esc(item.type || '') + '</span>'}</div></div></article>
       `).join('');
-      grid.querySelectorAll('.card').forEach(card => card.addEventListener('click', () => openDetail(filteredItems[Number(card.dataset.index)], card)));
+
+      grid.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('click', () => {
+          const item = filteredItems[Number(card.dataset.index)];
+          openDetail(item, card);
+        });
+      });
+
       status.textContent = filteredItems.length ? `Mostrando ${items.length} de ${filteredItems.length} títulos` : 'No hay resultados';
       loadMoreBtn.style.display = visibleCount < filteredItems.length ? 'block' : 'none';
     }
@@ -146,7 +160,7 @@
 
     function openDetail(item, cardEl) {
       if (!item) return;
-      scrollCardToCenter(cardEl);
+      scrollCardIntoView(cardEl);
       setTimeout(() => {
         detailView.classList.add('active');
         detailView.innerHTML = `
@@ -167,8 +181,6 @@
         document.getElementById('openLink').onclick = () => tg ? tg.showAlert('Aquí abrirías el enlace permitido.') : alert('Abrir enlace');
       }, 120);
     }
-
-    function closeDetail() { detailView.classList.remove('active'); detailView.innerHTML = ''; }
 
     async function loadCatalog() {
       try {
@@ -193,6 +205,7 @@
       activeFilter = btn.dataset.filter;
       applyFilters();
     }));
+
     searchInput.addEventListener('input', applyFilters);
     typeSelect.addEventListener('change', applyFilters);
     loadMoreBtn.addEventListener('click', () => { visibleCount += 12; renderGrid(); });
