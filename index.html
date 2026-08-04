@@ -66,7 +66,7 @@
 
       <section class="hero">
         <h2>Catálogo en pósters</h2>
-        <p>Cada tarjeta solo muestra dos opciones al expandirse: ver peli y ver menos.</p>
+        <p>Cada tarjeta se expande y te deja abrir la peli con un botón dedicado.</p>
       </section>
 
       <section class="toolbar">
@@ -153,9 +153,14 @@
         card.querySelector('[data-action="play"]')?.addEventListener('click', (e) => {
           e.stopPropagation();
           const url = makeLink(item);
-          if (url && url !== '#') window.open(url, '_blank');
-          else if (tg) tg.showAlert('Pronto: aquí se abrirá el enlace de la peli.');
-          else alert('Pronto: aquí se abrirá el enlace de la peli.');
+          if (url && url !== '#') {
+            if (tg && typeof tg.openLink === 'function') tg.openLink(url);
+            else window.open(url, '_blank');
+          } else if (tg && typeof tg.showAlert === 'function') {
+            tg.showAlert('No hay enlace configurado.');
+          } else {
+            alert('No hay enlace configurado.');
+          }
         });
         card.querySelector('[data-action="less"]')?.addEventListener('click', (e) => {
           e.stopPropagation();
@@ -200,11 +205,13 @@
         const res = await fetch(`${API_BASE}/public/content`, { cache: 'no-store' });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         allItems = await res.json();
-      } catch {
+        console.log('[index] catálogo cargado', allItems);
+      } catch (err) {
+        console.error('[index] error cargando catálogo', err);
         allItems = [
           { title: 'Scream 7', type: 'Terror', year: 2026, description: 'Demo local', is_featured: true, poster_url: '', watch_url: '' },
           { title: 'M3GAN 2.0', type: 'Ciencia ficción', year: 2025, description: 'Demo local', is_featured: true, poster_url: '', watch_url: '' },
-          { title: 'La Odisea', type: 'Aventura', year: 2026, description: 'Demo local', is_featured: false, poster_url: '', watch_url: '' },
+          { title: 'La Odisea', type: 'Aventura', year: 2026, description: 'Demo local', is_featured: false, poster_url: '', watch_url: 'https://youtu.be/17EpjmkhleQ?si=-nADMXHpHDpsCY8p' },
           { title: 'Toy Story 5', type: 'Animación', year: 2026, description: 'Demo local', is_featured: false, poster_url: '', watch_url: '' }
         ];
       }
