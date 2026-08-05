@@ -47,5 +47,15 @@
     "poster_url": "https://dai.ly/x9bi614",
     "is_featured": false,
     "video_url": "https://dai.ly/x9bi614"
+  },
+  {
+    "title": "Spiderman",
+    "type": "Ciencia ficción",
+    "year": 2026,
+    "description": "Camino al futuro",
+    "poster_url": "https://pelisflixhd.blog/pelicula/spider-man-el-hombre-arana-zrdr/#player",
+    "is_featured": true,
+    "slug": "spiderman",
+    "video_url": "https://pelisflixhd.blog/pelicula/spider-man-el-hombre-arana-zrdr/#player"
   }
 ]
