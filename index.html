@@ -71,7 +71,7 @@
 
       <section class="hero">
         <h2>Catálogo en pósters</h2>
-        <p>Ahora, al pulsar <b>Ver peli</b>, se abrirá un reproductor en un iframe dentro de la misma Mini App.</p>
+        <p>Los datos se cargan desde <code>catalog.json</code>. Para añadir pelis, solo edita ese archivo.</p>
       </section>
 
       <section class="toolbar">
@@ -120,7 +120,7 @@
   </div>
 
   <script>
-    const API_BASE = 'http://127.0.0.1:8000/api';
+    const CATALOG_URL = 'catalog.json';
     const PLAYER_URL = 'https://oyuwwwygga.github.io/Tele_web/player.html';
     const tg = window.Telegram?.WebApp || null;
     const appContent = document.getElementById('appContent');
@@ -206,7 +206,6 @@
     function openPlayer(item) {
       const title = item?.title || 'Reproductor';
       const url = `${PLAYER_URL}?video=dQw4w9WgXcQ&title=${encodeURIComponent(title)}`;
-      console.log('[index] opening iframe player', url, item);
       playerMovieTitle.textContent = title;
       playerMovieMeta.textContent = item?.type ? `${item.type} · ${item.year || ''}` : 'Video de prueba';
       playerFrame.src = url;
@@ -236,12 +235,12 @@
 
     async function loadCatalog() {
       try {
-        const res = await fetch(`${API_BASE}/public/content`, { cache: 'no-store' });
+        const res = await fetch(CATALOG_URL, { cache: 'no-store' });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         allItems = await res.json();
-        console.log('[index] catálogo cargado', allItems);
+        if (!Array.isArray(allItems)) throw new Error('catalog.json debe ser una lista');
       } catch (err) {
-        console.error('[index] error cargando catálogo', err);
+        console.error('[index] error cargando catalog.json', err);
         allItems = [
           { title: 'Scream 7', type: 'Terror', year: 2026, description: 'Demo local', is_featured: true, poster_url: '' },
           { title: 'M3GAN 2.0', type: 'Ciencia ficción', year: 2025, description: 'Demo local', is_featured: true, poster_url: '' },
