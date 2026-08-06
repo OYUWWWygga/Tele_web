@@ -1,13 +1,5 @@
 [
   {
-    "title": "Scream 7",
-    "type": "Terror",
-    "year": 2026,
-    "description": "Una nueva ola de terror llega a Woodsboro.",
-    "poster_url": "",
-    "is_featured": true
-  },
-  {
     "title": "M3GAN 2.0",
     "type": "Ciencia ficción",
     "year": 2025,
@@ -57,5 +49,15 @@
     "is_featured": true,
     "slug": "spiderman",
     "video_url": "https://pelisflixhd.blog/pelicula/spider-man-el-hombre-arana-zrdr/#player"
+  },
+  {
+    "title": "El Gato",
+    "type": "Animado",
+    "year": 2006,
+    "description": "El gato",
+    "poster_url": "https://m.media-amazon.com/images/I/81OVRmF3mTL._AC_UY327_FMwebp_QL65_.jpg",
+    "is_featured": true,
+    "slug": "el-gato",
+    "video_url": ""
   }
 ]
