@@ -1,5 +1,4 @@
-{
-  "movies": [
+[
     {
       "tmdb_id": 1284041,
       "title": "La última casa",
@@ -370,4 +369,3 @@
       "is_featured": false
     }
   ]
-}
