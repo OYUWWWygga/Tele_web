@@ -1,63 +1,686 @@
-[
-  {
-    "title": "M3GAN 2.0",
-    "type": "Ciencia ficción",
-    "year": 2025,
-    "description": "La IA vuelve con más control y más caos.",
-    "poster_url": "",
-    "is_featured": true
-  },
-  {
-    "title": "La Odisea",
-    "type": "Aventura",
-    "year": 2026,
-    "description": "Un viaje épico por mundos desconocidos.",
-    "poster_url": "",
-    "is_featured": false
-  },
-  {
-    "title": "Toy Story 5",
-    "type": "Animación",
-    "year": 2026,
-    "description": "Los juguetes regresan para una nueva aventura.",
-    "poster_url": "",
-    "is_featured": false
-  },
-  {
-    "title": "Avatar 3",
-    "type": "Ciencia ficción",
-    "year": 2026,
-    "description": "Nueva expansión del universo de Pandora.",
-    "poster_url": "",
-    "is_featured": false
-  },
-  {
-    "title": "La que se avecina",
-    "type": "Comedia",
-    "year": 2000,
-    "description": "La loca de la comunidad empieza a liarla",
-    "poster_url": "https://dai.ly/x9bi614",
-    "is_featured": false,
-    "video_url": "https://dai.ly/x9bi614"
-  },
-  {
-    "title": "Spiderman",
-    "type": "Ciencia ficción",
-    "year": 2026,
-    "description": "Camino al futuro",
-    "poster_url": "https://pelisflixhd.blog/pelicula/spider-man-el-hombre-arana-zrdr/#player",
-    "is_featured": true,
-    "slug": "spiderman",
-    "video_url": "https://pelisflixhd.blog/pelicula/spider-man-el-hombre-arana-zrdr/#player"
-  },
-  {
-    "title": "El Gato",
-    "type": "Animado",
-    "year": 2006,
-    "description": "El gato",
-    "poster_url": "https://m.media-amazon.com/images/I/81OVRmF3mTL._AC_UY327_FMwebp_QL65_.jpg",
-    "is_featured": true,
-    "slug": "el-gato",
-    "video_url": ""
-  }
-]
+{
+  "movies": [
+    {
+      "tmdb_id": 1284041,
+      "title": "La última casa",
+      "original_title": "The Last House",
+      "release_date": "2026-08-06",
+      "overview": "Una familia encerrada en su casa misteriosamente tendrá que unirse para sobrevivir a la escasez de recursos y a la siniestra amenaza que no los deja salir.",
+      "genres": [
+        "Terror",
+        "Ciencia ficción",
+        "Suspense"
+      ],
+      "vote_average": 6.2,
+      "vote_count": 21,
+      "poster_path": "/pJnkPtQE8A5H67biPTaTedtHs1L.jpg",
+      "poster_local": "posters\\poster_1284041.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/1284041"
+    },
+    {
+      "tmdb_id": 21182,
+      "title": "Corazones rebeldes (Young At Heart)",
+      "original_title": "Young at Heart",
+      "release_date": "2008-10-02",
+      "overview": "Documental sobre varias semanas de ensayo del coro de ancianos \"Young at Heart\" en Northampton MA, durante las cuales varios de sus componentes deben sortear los problemas de salud propios de su edad. Su estilo de música rompe todos los estereotipos de un coro de gente mayor, y han realizado giras por Europa y cantado para la realeza. Este relato se centra en la preparación de algunas canciones nuevas para un concierto en su ciudad natal.",
+      "genres": [
+        "Documental"
+      ],
+      "vote_average": 7.3,
+      "vote_count": 51,
+      "poster_path": "/yxBmL96MrP0OQLXXMIsmSi6urGe.jpg",
+      "poster_local": "posters\\poster_21182.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/21182"
+    },
+    {
+      "tmdb_id": 1659155,
+      "title": "Los creyentes",
+      "original_title": "Los creyentes",
+      "release_date": "2026-07-24",
+      "overview": "Cuando su madre muere en extrañas circunstancias, una mujer de 30 años distanciada de su familia vuelve a casa. La relación tensa con su padre y el comportamiento cada vez más errático de éste la llevan a sospechar que él mató a su madre.",
+      "genres": [
+        "Suspense",
+        "Drama",
+        "Misterio"
+      ],
+      "vote_average": 5.73,
+      "vote_count": 63,
+      "poster_path": "/pUvs1iFFMDy3sNp5dNmkRak1oxD.jpg",
+      "poster_local": "posters\\poster_1659155.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/1659155"
+    },
+    {
+      "tmdb_id": 949838,
+      "title": "72 horas",
+      "original_title": "72 HOURS",
+      "release_date": "2026-07-20",
+      "overview": "Para salvar su carrera, un ejecutivo publicitario de 40 años se une a unos veinteañeros en una alocada despedida de soltero en Miami cuando lo añaden por error a un chat grupal.",
+      "genres": [
+        "Comedia",
+        "Crimen"
+      ],
+      "vote_average": 6.784,
+      "vote_count": 276,
+      "poster_path": "/enkyq1gVdQqWaCyAFjFIxjlKvNW.jpg",
+      "poster_local": "posters\\poster_949838.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/949838"
+    },
+    {
+      "tmdb_id": 1487861,
+      "title": "Elize: Sombras de una mujer",
+      "original_title": "Elize: Sombras de uma Mulher",
+      "release_date": "2026-07-22",
+      "overview": "Una antigua escort trata de ignorar las infidelidades de su rico marido. Pero esa traición envenena su matrimonio.",
+      "genres": [
+        "Suspense",
+        "Crimen",
+        "Drama"
+      ],
+      "vote_average": 7.423,
+      "vote_count": 136,
+      "poster_path": "/a3y0aWIJdJEw7pme6Y9W0aReIN9.jpg",
+      "poster_local": "posters\\poster_1487861.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/1487861"
+    },
+    {
+      "tmdb_id": 1630409,
+      "title": "El cobrador de deudas",
+      "original_title": "คนเดือดทวงแค้น",
+      "release_date": "2026-07-20",
+      "overview": "Atormentado por los errores del pasado y un diagnóstico terminal, un excobrador de deudas regresa al mundo del hampa para proteger a las víctimas de una organización violenta.",
+      "genres": [
+        "Acción",
+        "Suspense",
+        "Crimen"
+      ],
+      "vote_average": 7.7,
+      "vote_count": 68,
+      "poster_path": "/loW8i6T3amH4CONDjaUNmQv9kva.jpg",
+      "poster_local": "posters\\poster_1630409.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/1630409"
+    },
+    {
+      "tmdb_id": 1723460,
+      "title": "Una tóxica historia de amor",
+      "original_title": "A Toxic Love Story",
+      "release_date": "2026-07-22",
+      "overview": "Unos correos amenazantes derivan en una venganza donde se ven envueltos un agente federal de EE. UU. recién casado y su ex.",
+      "genres": [
+        "Documental"
+      ],
+      "vote_average": 6.5,
+      "vote_count": 41,
+      "poster_path": "/9CmyFXKqQRVbGGxyJE6kp7fhrHa.jpg",
+      "poster_local": "posters\\poster_1723460.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/1723460"
+    },
+    {
+      "tmdb_id": 1668364,
+      "title": "Deseo",
+      "original_title": "Deseo",
+      "release_date": "2026-05-07",
+      "overview": "Una abogada casada tiene una aventura con el entrenador de natación de su hija, y su tórrido romance acaba en un juego retorcido en el que todos pierden el control.",
+      "genres": [
+        "Misterio",
+        "Drama"
+      ],
+      "vote_average": 6.745,
+      "vote_count": 194,
+      "poster_path": "/hzyByMOgLeYwu13fusOwIPJwMNV.jpg",
+      "poster_local": "posters\\poster_1668364.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/1668364"
+    },
+    {
+      "tmdb_id": 574475,
+      "title": "Destino final: Lazos de sangre",
+      "original_title": "Final Destination Bloodlines",
+      "release_date": "2025-05-14",
+      "overview": "Acosada por una violenta pesadilla recurrente, la estudiante universitaria Stefanie se dirige a casa para localizar a la única persona que podría ser capaz de romper el ciclo y salvar a su familia de la espeluznante muerte que inevitablemente les espera a todos.",
+      "genres": [
+        "Terror",
+        "Misterio"
+      ],
+      "vote_average": 7.032,
+      "vote_count": 3011,
+      "poster_path": "/frNkbclQpexf3aUzZrnixF3t5Hw.jpg",
+      "poster_local": "posters\\poster_574475.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/574475"
+    },
+    {
+      "tmdb_id": 1498047,
+      "title": "Abuela tremenda",
+      "original_title": "Abuela tremenda",
+      "release_date": "2026-01-01",
+      "overview": "Nos contará la historia de Toñi, una abuela excéntrica que sobrevive como puede entre negocios ruinosos y una actitud despreocupada ante la vida. Su hija Daniela, ejecutiva estresada y madre soltera, quiere mantenerla lejos. Pero la pequeña Alexia, hija de Daniela, ve en su abuela a su persona favorita en el mundo.",
+      "genres": [
+        "Comedia",
+        "Familia"
+      ],
+      "vote_average": 6.707,
+      "vote_count": 29,
+      "poster_path": "/7rPJWJNmIPHSppjLMGqjzwpkOs6.jpg",
+      "poster_local": "posters\\poster_1498047.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/1498047"
+    },
+    {
+      "tmdb_id": 2034,
+      "title": "Training Day (Día de entrenamiento)",
+      "original_title": "Training Day",
+      "release_date": "2001-10-05",
+      "overview": "Todos los días, en las calles de las zonas urbanas deprimidas de los Estados Unidos se libra una guerra; una guerra entre residentes, traficantes de droga y los que han jurado proteger a unos de los otros. Esta guerra tiene sus víctimas y sus verdugos, y una de sus figuras más importantes es el sargento Alonzo Harris, un agente de narcóticos con 13 años de experiencia cuyos discutibles métodos hacen difusa la línea entre la legalidad y la corrupción. Jake Hoyt, un joven policía recién asignado a narcóticos, comienza sus rondas a las órdenes de Alonzo para aprender de él.",
+      "genres": [
+        "Acción",
+        "Crimen",
+        "Drama"
+      ],
+      "vote_average": 7.527,
+      "vote_count": 6718,
+      "poster_path": "/nagh5PjkfBnDf5SKXyHupWu4yod.jpg",
+      "poster_local": "posters\\poster_2034.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/2034"
+    },
+    {
+      "tmdb_id": 1217584,
+      "title": "Torrente presidente",
+      "original_title": "Torrente Presidente",
+      "release_date": "2026-03-13",
+      "overview": "José Luis Torrente es reclutado por el partido Nox para ser su candidato, aprovechando su discurso incorrecto y la popularidad entre los sectores más reaccionarios.",
+      "genres": [
+        "Comedia"
+      ],
+      "vote_average": 6.137,
+      "vote_count": 139,
+      "poster_path": "/oD9He3Kpxs1FMm10y82JYAqYDAJ.jpg",
+      "poster_local": "posters\\poster_1217584.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/1217584"
+    },
+    {
+      "tmdb_id": 1228246,
+      "title": "Five Nights at Freddy's 2",
+      "original_title": "Five Nights at Freddy's 2",
+      "release_date": "2025-12-03",
+      "overview": "Un año después de la pesadilla sobrenatural en Freddy Fazbear's Pizza, las historias sobre lo ocurrido allí se han convertido en una leyenda local extravagante, inspirando el primer Fazfest del pueblo. Con la verdad oculta, Abby se escapa para reencontrarse con Freddy, Bonnie, Chica y Foxy, desencadenando una serie de eventos aterradores que revelarán oscuros secretos sobre el verdadero origen de Freddy's y desatarán un horror oculto durante décadas.",
+      "genres": [
+        "Terror",
+        "Suspense"
+      ],
+      "vote_average": 6.62,
+      "vote_count": 1090,
+      "poster_path": "/egHOFSRXrAaugFUD7VMEnXlTnzJ.jpg",
+      "poster_local": "posters\\poster_1228246.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/1228246"
+    },
+    {
+      "tmdb_id": 762441,
+      "title": "Un lugar tranquilo: Día uno",
+      "original_title": "A Quiet Place: Day One",
+      "release_date": "2024-06-26",
+      "overview": "Una mujer llamada Sam trata de sobrevivir a una invasión en la ciudad de Nueva York por criaturas alienígenas sedientas de sangre con oídos ultrasónicos. Tercera entrega de la saga y precuela de las dos anteriores.",
+      "genres": [
+        "Terror",
+        "Ciencia ficción",
+        "Suspense"
+      ],
+      "vote_average": 6.646,
+      "vote_count": 3469,
+      "poster_path": "/6efQJ7pu9GPketUDBAhJtgZLkvD.jpg",
+      "poster_local": "posters\\poster_762441.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/762441"
+    },
+    {
+      "tmdb_id": 1197137,
+      "title": "Black Phone 2",
+      "original_title": "Black Phone 2",
+      "release_date": "2025-10-15",
+      "overview": "Ambientada en 1982, cuatro años después de que Finney Blake lograra matar al secuestrador y asesino en serie conocido como \"The Grabber\". Finney, ahora marcado por el trauma, junto a su hermana menor Gwen, que tiene habilidades psíquicas, comienzan a tener visiones relacionadas con asesinatos ocurridos en un campamento cristiano en las Montañas Rocosas. Decididos a descubrir la verdad, viajan junto con Ernesto, un amigo, al campamento donde trabajó su madre, que también tenía dones psíquicos y fue víctima del asesino.",
+      "genres": [
+        "Terror",
+        "Suspense"
+      ],
+      "vote_average": 6.657,
+      "vote_count": 1255,
+      "poster_path": "/i5OfOjbZMxNfiFGkdETdbJUOLAq.jpg",
+      "poster_local": "posters\\poster_1197137.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/1197137"
+    },
+    {
+      "tmdb_id": 762504,
+      "title": "¡Nop!",
+      "original_title": "Nope",
+      "release_date": "2022-07-20",
+      "overview": "Los habitantes de un remoto pueblo del interior de California, entre los que se encuentran los propietarios de un rancho, James y Jill Haywood, realizan un descubrimiento tan insólito como estremecedor.",
+      "genres": [
+        "Terror",
+        "Ciencia ficción",
+        "Suspense"
+      ],
+      "vote_average": 6.823,
+      "vote_count": 5045,
+      "poster_path": "/tfZPQAHZ3xKSdilLywRzHj8xH7p.jpg",
+      "poster_local": "posters\\poster_762504.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/762504"
+    },
+    {
+      "tmdb_id": 1011985,
+      "title": "Kung Fu Panda 4",
+      "original_title": "Kung Fu Panda 4",
+      "release_date": "2024-03-02",
+      "overview": "Po se prepara para ser el líder espiritual del Valle de la Paz, buscando un sucesor como Guerrero Dragón. Mientras entrena a un nuevo practicante de kung fu, enfrenta al villano llamado \"el Camaleón\", que evoca villanos del pasado, desafiando todo lo que Po y sus amigos han aprendido.",
+      "genres": [
+        "Acción",
+        "Aventura",
+        "Animación",
+        "Comedia",
+        "Familia",
+        "Fantasía"
+      ],
+      "vote_average": 7.005,
+      "vote_count": 3619,
+      "poster_path": "/2xgGWjM3a38E4KTLapvC53RnpN1.jpg",
+      "poster_local": "posters\\poster_1011985.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/1011985"
+    },
+    {
+      "tmdb_id": 803796,
+      "title": "Las guerreras k-pop",
+      "original_title": "KPop Demon Hunters",
+      "release_date": "2025-06-20",
+      "overview": "Cuando no están llenando estadios, las superestrellas del K-pop Rumi, Mira y Zoey usan sus poderes secretos para proteger a sus fans de una amenaza sobrenatural.",
+      "genres": [
+        "Fantasía",
+        "Música",
+        "Comedia",
+        "Animación"
+      ],
+      "vote_average": 8.003,
+      "vote_count": 3069,
+      "poster_path": "/6EQMqEmdG5HoGe2zT1WwWUMvVhv.jpg",
+      "poster_local": "posters\\poster_803796.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/803796"
+    },
+    {
+      "tmdb_id": 315635,
+      "title": "Spider-Man: Homecoming",
+      "original_title": "Spider-Man: Homecoming",
+      "release_date": "2017-07-05",
+      "overview": "Peter Parker comienza a experimentar su recién descubierta identidad como el superhéroe Spider-Man. Después de la experiencia vivida con los Vengadores, Peter regresa a casa, donde vive con su tía. Bajo la atenta mirada de su mentor Tony Stark, Peter intenta mantener una vida normal como cualquier joven de su edad, pero interrumpe en su rutina diaria el nuevo villano Vulture y, con él, lo más importante de la vida de Peter comenzará a verse amenazado.",
+      "genres": [
+        "Acción",
+        "Aventura",
+        "Ciencia ficción"
+      ],
+      "vote_average": 7.332,
+      "vote_count": 23515,
+      "poster_path": "/bRl6C6FwzTndk0MBGZZ68nRFlw3.jpg",
+      "poster_local": "posters\\poster_315635.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/315635"
+    },
+    {
+      "tmdb_id": 974036,
+      "title": "Ángeles cotidianos",
+      "original_title": "Ordinary Angels",
+      "release_date": "2024-02-22",
+      "overview": "Inspirada en la historia real de una peluquera que, sin ayuda de nadie, intentó reunir a toda una comunidad para ayudar a un padre viudo a intentar salvar la vida de su pequeña hija gravemente enferma.",
+      "genres": [
+        "Drama"
+      ],
+      "vote_average": 7.7,
+      "vote_count": 413,
+      "poster_path": "/x1jkzJGnerhMrweZsoCVgefPQ0L.jpg",
+      "poster_local": "posters\\poster_974036.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/974036"
+    },
+    {
+      "tmdb_id": 64720,
+      "title": "Take Shelter",
+      "original_title": "Take Shelter",
+      "release_date": "2011-09-30",
+      "overview": "Curtis LaForche vive en un pequeño pueblo de Ohio con su mujer, Samantha, y su hija Ana, una niña sorda de seis años. Curtis empieza a sufrir fuertes alucinaciones apocalípticas. Unas alucinaciones que no sabe si son consecuencia de una enfermedad mental o se trata de premoniciones reales...",
+      "genres": [
+        "Suspense",
+        "Drama",
+        "Terror"
+      ],
+      "vote_average": 7.057,
+      "vote_count": 2031,
+      "poster_path": "/915o7bvyYyOtU8u7UWax9CDQh83.jpg",
+      "poster_local": "posters\\poster_64720.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/64720"
+    },
+    {
+      "tmdb_id": 1265609,
+      "title": "Máquina de guerra",
+      "original_title": "War Machine",
+      "release_date": "2026-02-12",
+      "overview": "En una última misión agotadora durante el entrenamiento para ser ranger, un ingeniero de combate debe liderar a su unidad contra una gigantesca máquina asesina de otro mundo.",
+      "genres": [
+        "Acción",
+        "Ciencia ficción",
+        "Suspense"
+      ],
+      "vote_average": 7.437,
+      "vote_count": 2236,
+      "poster_path": "/5C18uOTbDZRvVIZcVRO747k2fUi.jpg",
+      "poster_local": "posters\\poster_1265609.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/1265609"
+    },
+    {
+      "tmdb_id": 1007757,
+      "title": "Intercambiados",
+      "original_title": "Swapped",
+      "release_date": "2026-05-01",
+      "overview": "Una pequeña criatura del bosque intercambia el cuerpo con un majestuoso pájaro del valle, lo que los obliga a colaborar para sobrevivir a la aventura más salvaje de sus vidas.",
+      "genres": [
+        "Aventura",
+        "Animación",
+        "Familia",
+        "Fantasía"
+      ],
+      "vote_average": 8.889,
+      "vote_count": 2066,
+      "poster_path": "/i89vUDwNhAEWUZSFYITSiv1RIbK.jpg",
+      "poster_local": "posters\\poster_1007757.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/1007757"
+    },
+    {
+      "tmdb_id": 614945,
+      "title": "Mensajes de voz para Isabelle",
+      "original_title": "Voicemails for Isabelle",
+      "release_date": "2026-06-20",
+      "overview": "Una joven deja mensajes de voz bastante explícitos a su difunta hermana, sin saber que los recibe un desconocido que comienza a enamorarse de ella.",
+      "genres": [
+        "Romance",
+        "Comedia",
+        "Drama"
+      ],
+      "vote_average": 8.4,
+      "vote_count": 748,
+      "poster_path": "/ohIYxdaO7WV1zsSPFZVddWNEWkk.jpg",
+      "poster_local": "posters\\poster_614945.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/614945"
+    },
+    {
+      "tmdb_id": 1740877,
+      "title": "Sesame Street y la tormenta",
+      "original_title": "Storm on Sesame Street",
+      "release_date": "2026-08-03",
+      "overview": "Después de que un huracán arrasara Barrio Sésamo, Big Bird se quedó sin nido. Pero sus amigos se unieron para animarlo y ayudarle a reconstruir su hogar.",
+      "genres": [
+        "Familia",
+        "Animación"
+      ],
+      "vote_average": 0.0,
+      "vote_count": 0,
+      "poster_path": "/oMAuDxxMPxzHjUmbrCR9EvJyH8U.jpg",
+      "poster_local": "posters\\poster_1740877.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/1740877"
+    },
+    {
+      "tmdb_id": 1679730,
+      "title": "THE RIBBON HERO リボンヒーロー",
+      "original_title": "THE RIBBON HERO リボンヒーロー",
+      "release_date": "2026-08-07",
+      "overview": "",
+      "genres": [
+        "Animación",
+        "Fantasía",
+        "Drama",
+        "Acción"
+      ],
+      "vote_average": 0.0,
+      "vote_count": 0,
+      "poster_path": "/d1nx0zBp0c513iJbhKj5VhpO76C.jpg",
+      "poster_local": "posters\\poster_1679730.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/1679730"
+    },
+    {
+      "tmdb_id": 1062722,
+      "title": "Frankenstein",
+      "original_title": "Frankenstein",
+      "release_date": "2025-10-17",
+      "overview": "Un científico brillante y obsesivo, Victor Frankenstein, en su ambición por desafiar a la muerte, da vida a una criatura ensamblada con partes de cadáveres. Pese a tratarse de una proeza científica, Frankenstein considera que la criatura carece de inteligencia y la rechaza. Dolida, esta se rebela contra su creador.",
+      "genres": [
+        "Drama",
+        "Fantasía",
+        "Terror"
+      ],
+      "vote_average": 7.62,
+      "vote_count": 3677,
+      "poster_path": "/hTj8x0ElKldJyAjTYvaqxkQNxxN.jpg",
+      "poster_local": "posters\\poster_1062722.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/1062722"
+    },
+    {
+      "tmdb_id": 1306368,
+      "title": "El botín",
+      "original_title": "The Rip",
+      "release_date": "2026-01-13",
+      "overview": "El descubrimiento de varios millones de dólares en efectivo en un zulo abandonado de Miami quiebra la confianza de un grupo de policías. Ahora, todo y todos están bajo sospecha.",
+      "genres": [
+        "Acción",
+        "Suspense",
+        "Crimen"
+      ],
+      "vote_average": 7.087,
+      "vote_count": 1817,
+      "poster_path": "/28hTjQCq0ul6WUR22qRsWEeuxlj.jpg",
+      "poster_local": "posters\\poster_1306368.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/1306368"
+    },
+    {
+      "tmdb_id": 1202033,
+      "title": "Enola Holmes 3",
+      "original_title": "Enola Holmes 3",
+      "release_date": "2026-06-30",
+      "overview": "Las aventuras de la detective Enola Holmes continúan en Malta, donde sus planes de boda se complican cuando Sherlock desaparece y ella se ve envuelta en un peligroso caso.",
+      "genres": [
+        "Aventura",
+        "Crimen",
+        "Misterio"
+      ],
+      "vote_average": 6.9,
+      "vote_count": 565,
+      "poster_path": "/cepT0wSQPvynDDYAM8tHjxa1Quk.jpg",
+      "poster_local": "posters\\poster_1202033.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/1202033"
+    },
+    {
+      "tmdb_id": 875828,
+      "title": "Peaky Blinders: El hombre inmortal",
+      "original_title": "Peaky Blinders: The Immortal Man",
+      "release_date": "2026-03-05",
+      "overview": "El gánster Tommy Shelby regresa a Birmingham para salvar a su familia —y a su país— cuando su hijo, del que se ha distanciado, se ve envuelto en un complot nazi.",
+      "genres": [
+        "Crimen",
+        "Drama"
+      ],
+      "vote_average": 7.228,
+      "vote_count": 1127,
+      "poster_path": "/l9S8MLUyi2diTc2Gf3KDAOQTuVx.jpg",
+      "poster_local": "posters\\poster_875828.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/875828"
+    },
+    {
+      "tmdb_id": 1206522,
+      "title": "Los Caballeros de Santiago",
+      "original_title": "Los Caballeros de Santiago",
+      "release_date": "2023-11-10",
+      "overview": "En un país dividido en una eterna guerra interna, una orden de caballeros se alza para construir una nación.",
+      "genres": [
+        "Documental"
+      ],
+      "vote_average": 8.0,
+      "vote_count": 6,
+      "poster_path": "/fSF8XzHpeqF1QAtHzJyuqxw1EbD.jpg",
+      "poster_local": "posters\\poster_1206522.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/1206522"
+    },
+    {
+      "tmdb_id": 519106,
+      "title": "En liberté !",
+      "original_title": "En liberté !",
+      "release_date": "2018-10-06",
+      "overview": "El detective Yvonne es la viuda del jefe de policía Santi, un héroe local en un pueblo de la Riviera francesa. Cuando se entera de que él era un policía corrupto, trata de corregir sus errores. Cruzar caminos con Antoine, una víctima de Santi, desencadena una serie de eventos salvajes.",
+      "genres": [
+        "Comedia",
+        "Drama",
+        "Romance",
+        "Crimen"
+      ],
+      "vote_average": 6.025,
+      "vote_count": 474,
+      "poster_path": "/mr6Daq6iaiZp3bnWgZfPW8KB6MM.jpg",
+      "poster_local": "posters\\poster_519106.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/519106"
+    },
+    {
+      "tmdb_id": 1558568,
+      "title": "Gracias, equipo",
+      "original_title": "Gracias, equipo",
+      "release_date": "2026-09-11",
+      "overview": "Nos contará la historia de la empresa Tío Mochales, antaño reina indiscutible del queso español. Hoy es una empresa un poco oxidada pero empeñada en mantener la imagen. Su última gran idea: organizar un team building rural en el pueblo donde la empresa se fundó. Pero lo que debía ser un retiro para reconectar con los valores de siempre, se convierte en una encerrona cuando descubren que se vienen despidos, y muchos, seguida de una batalla campal de peloteo, traiciones y filtraciones",
+      "genres": [
+        "Comedia"
+      ],
+      "vote_average": 0.0,
+      "vote_count": 0,
+      "poster_path": null,
+      "poster_local": null,
+      "tmdb_url": "https://www.themoviedb.org/movie/1558568"
+    },
+    {
+      "tmdb_id": 6106,
+      "title": "Salvador",
+      "original_title": "Salvador",
+      "release_date": "1986-04-23",
+      "overview": "Tragedia sobre las guerras civiles de Centroamérica en los años ochenta. Richard Boyle fue un reportero norteamericano que trabajó en El Salvador en este periodo. La conmoción que experimentó al descubrir por sí mismo ciertos aspectos de la realidad que ignoraba lo impulsó a comprometerse y a tomar partido.",
+      "genres": [
+        "Drama",
+        "Suspense",
+        "Bélica"
+      ],
+      "vote_average": 7.03,
+      "vote_count": 417,
+      "poster_path": "/tfUPNBXTqp55y7e3eYyUwc6HFug.jpg",
+      "poster_local": "posters\\poster_6106.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/6106"
+    },
+    {
+      "tmdb_id": 247182,
+      "title": "El Niño",
+      "original_title": "El Niño",
+      "release_date": "2014-08-29",
+      "overview": "Gibraltar, el Estrecho. Apenas 15 kilómetros que separan al continente europeo de África. El lugar idóneo para hacerse de oro o morir en el intento atrapado por las olas. La tarea no es fácil, pues la recompensa no se recibe hasta conseguir hacer llegar la lancha con hachís a la otra orilla, esquivando por supuesto, todos los controles policiales aéreos y marítimos. \"El niño\" y \"El Compi\" saben que el mundo del narcotráfico da mucho dinero y esta es su oportunidad para iniciarse. Llevan toda la vida viviendo de ello, pero es hora de montar su propio negocio.",
+      "genres": [
+        "Drama",
+        "Suspense"
+      ],
+      "vote_average": 6.445,
+      "vote_count": 265,
+      "poster_path": "/cOSAcaVdqQoyX7VDigjAy94mMaO.jpg",
+      "poster_local": "posters\\poster_247182.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/247182"
+    },
+    {
+      "tmdb_id": 1276704,
+      "title": "53 domingos",
+      "original_title": "53 domingos",
+      "release_date": "2026-03-26",
+      "overview": "Tres hermanos acuerdan reunirse para decidir el futuro de su padre, pero el encuentro se convierte en un sinfín de reproches, pullas y rencillas del pasado.",
+      "genres": [
+        "Comedia",
+        "Drama"
+      ],
+      "vote_average": 5.9,
+      "vote_count": 70,
+      "poster_path": "/nxUy4A5KFdNVjwqXoFRK8PqZ5vZ.jpg",
+      "poster_local": "posters\\poster_1276704.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/1276704"
+    },
+    {
+      "tmdb_id": 829557,
+      "title": "365 días: Aquel día",
+      "original_title": "365 dni: Ten dzień",
+      "release_date": "2022-04-26",
+      "overview": "Laura y Massimo vuelven más fuertes que nunca, pero las ataduras familiares de Massimo y un misterioso hombre que quiere conquistar a Laura complican su relación.",
+      "genres": [
+        "Romance",
+        "Drama"
+      ],
+      "vote_average": 5.95,
+      "vote_count": 1861,
+      "poster_path": "/k3J2GdYxhR6U2RfsHZOsmHVKW7m.jpg",
+      "poster_local": "posters\\poster_829557.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/829557"
+    },
+    {
+      "tmdb_id": 736790,
+      "title": "Chupa",
+      "original_title": "Chupa",
+      "release_date": "2023-04-07",
+      "overview": "Álex es un adolescente que ha ido a ver a su familia a México. En el cobertizo de su abuelo, se encuentra a un cachorro de chupacabras y se hacen amigos. Para salvar a esta criatura mítica, Álex y sus primos emprenden la aventura de su vida.",
+      "genres": [
+        "Aventura",
+        "Fantasía",
+        "Familia"
+      ],
+      "vote_average": 6.28,
+      "vote_count": 380,
+      "poster_path": "/dAwvE6Vd4mhlx2xJU6PqjBAM2y5.jpg",
+      "poster_local": "posters\\poster_736790.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/736790"
+    },
+    {
+      "tmdb_id": 495193,
+      "title": "Benji",
+      "original_title": "Benji",
+      "release_date": "2018-03-16",
+      "overview": "Este peludito callejero es capaz de abrir las puertas y los corazones. Nunca encontrarás un amigo más fiel.",
+      "genres": [
+        "Drama",
+        "Familia",
+        "Aventura",
+        "Crimen"
+      ],
+      "vote_average": 6.922,
+      "vote_count": 325,
+      "poster_path": "/79pacM3h5FoETnfuRC6O2qPfzn4.jpg",
+      "poster_local": "posters\\poster_495193.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/495193"
+    },
+    {
+      "tmdb_id": 817648,
+      "title": "Jugar en casa",
+      "original_title": "Home Team",
+      "release_date": "2022-01-28",
+      "overview": "Historia sobre el entrenador de los New Orleans Saints, Sean Payton, entrenando al equipo de fútbol de sexto curso de su hijo, cuando fue suspendido durante toda la temporada 2012 a consecuencia de su papel en el escándalo Bountygate de los Saints.",
+      "genres": [
+        "Familia",
+        "Comedia",
+        "Drama"
+      ],
+      "vote_average": 6.623,
+      "vote_count": 803,
+      "poster_path": "/t6EHm3HB5CROiEKBAheoCQyNvbG.jpg",
+      "poster_local": "posters\\poster_817648.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/817648"
+    },
+    {
+      "tmdb_id": 858408,
+      "title": "Perro perdido",
+      "original_title": "Dog Gone",
+      "release_date": "2023-01-12",
+      "overview": "Cuando su querido perro desaparece, un chico y sus padres lo buscan desesperadamente: si no le dan su medicación, morirá.",
+      "genres": [
+        "Familia",
+        "Aventura",
+        "Drama"
+      ],
+      "vote_average": 6.226,
+      "vote_count": 206,
+      "poster_path": "/vNhYiYibl5tfisoVcJuLhR2iaLX.jpg",
+      "poster_local": "posters\\poster_858408.jpg",
+      "tmdb_url": "https://www.themoviedb.org/movie/858408"
+    }
+  ]
+}
