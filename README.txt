@@ -1,0 +1,1 @@
+SUBE TODOS ESTOS ARCHIVOS AL NIVEL PRINCIPAL DEL REPOSITORIO: index.html, catalog.html, styles.css, app.js y catalog.json. GitHub Pages: Settings > Pages > main > /(root).
