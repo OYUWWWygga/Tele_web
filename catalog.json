@@ -1,0 +1,17 @@
+{
+  "movies": [
+    {
+      "tmdb_id": 1276704,
+      "title": "53 domingos",
+      "type": "Comedia",
+      "year": "2026",
+      "description": "Tres hermanos acuerdan reunirse para decidir el futuro de su padre, pero el encuentro se convierte en un sinfín de reproches.",
+      "poster_url": "https://image.tmdb.org/t/p/w500/nxUy4A5KFdNVjwqXoFRK8PqZ5vZ.jpg",
+      "trailer_url": "https://www.youtube.com/watch?v=Zvuvkf9qx4w",
+      "trailer_embed_url": "https://www.youtube.com/embed/Zvuvkf9qx4w",
+      "trailer_name": "53 domingos - Tráiler",
+      "video_url": "",
+      "is_featured": false
+    }
+  ]
+}
